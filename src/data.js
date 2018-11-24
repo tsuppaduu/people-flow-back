@@ -17,7 +17,7 @@ for (let i = 1; i <= 10; i++) {
 }
 const deviceData = deviceIds.map((id, i) => {
   const [ lat, lng ] = coords[i]
-  return { id, devices: Math.floor(100 * Math.random()), lat, lng }
+  return { id, devices: 250*Math.sin((new Date().getTime()+(id*4343212 ^ 24142243))/60*10*1000) + 250, lat, lng, time: new Date() }
 })
 
 const data = [
