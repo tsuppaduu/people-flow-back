@@ -93,7 +93,10 @@ const polyPositions = [
         [61.4925707, 23.7602303],
         [61.4919408, 23.7596617],
         [61.4919997, 23.7590823],
-      ]},
+      ]}
+]
+
+const sensors = [{desc:"sens LatLng(61.494152, 23.760284)",coords:[61.494152019129,23.76028418540955]},{desc:"sens LatLng(61.494055, 23.760338)",coords:[61.494054732888564,23.760337829589847]},{desc:"sens LatLng(61.493978, 23.760402)",coords:[61.49397792774705,23.7604022026062]},{desc:"sens LatLng(61.493911, 23.760424)",coords:[61.49391136313773,23.760423660278324]},{desc:"sens LatLng(61.493814, 23.760424)",coords:[61.49381407614488,23.760423660278324]},{desc:"sens LatLng(61.493712, 23.760488)",coords:[61.493711668455404,23.760488033294678]},{desc:"sens LatLng(61.493645, 23.76052)",coords:[61.493645103276506,23.76052021980286]},{desc:"sens LatLng(61.493548, 23.760552)",coords:[61.493547815451194,23.76055240631104]},{desc:"sens LatLng(61.493497, 23.760638)",coords:[61.493496611210446,23.760638236999515]},{desc:"sens LatLng(61.493425, 23.760638)",coords:[61.493424925131826,23.760638236999515]},
 ]
 
 function getData() {
@@ -101,7 +104,11 @@ function getData() {
 	  const [ lat, lng ] = poly.coords[0]
 	  console.log("pos ", lat , lng)
 	  return { i, devices: 250*Math.sin((new Date().getTime()+i*1000232^2324321)/(60*0.3*1000)) + 250, lat, lng, time: new Date() }
-	})
+	}).concat(sensors.map( (poly, i) => {
+	  const [ lat, lng ] = poly.coords
+	  console.log("pos ", lat , lng)
+	  return { i, devices: 250*Math.sin((new Date().getTime()+i*1000232^2324321)/(60*0.3*1000)) + 250, lat, lng, time: new Date() }
+	}))
 } 
 
 
