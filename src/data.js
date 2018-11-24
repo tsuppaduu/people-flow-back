@@ -109,7 +109,7 @@ function getData() {
 	  console.log("pos ", lat , lng)
 	  return { i, devices: 250*Math.sin((new Date().getTime()+i*1000232^2324321)/(60*0.3*1000)) + 250, lat, lng, time: new Date() }
 	}))
-} 
+}
 
 
 

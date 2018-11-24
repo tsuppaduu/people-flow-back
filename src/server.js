@@ -18,6 +18,19 @@ app.get('/scanners', (req, res) => {
   res.status(200).json(getData())
 })
 
+app.post('/scanners/data', (req, res) => {
+  try {
+    const { id, lat, lng, devices } = req.body
+    console.log('id', id)
+    console.log('lat', lat)
+    console.log('lng', lng)
+    console.log('devices', devices)
+    res.status(200).send('OK')
+  } catch (e) {
+    console.error(e)
+  }
+})
+
 // CREATE SERVER
 const server = http.createServer(app)
 const PORT = process.env.port || 8080
