@@ -5,6 +5,7 @@ const cors = require('cors')
 const helmet = require('helmet')
 const compression = require('compression')
 const app = require('express')()
+const data = require('./data')
 
 // MIDDLEWARE
 app.use(cors())
@@ -13,8 +14,8 @@ app.use(helmet())
 app.use(compression())
 
 // CONTROLLERS
-app.get('/', (req, res) => {
-  res.status(200).json({ data: [1, 2, 3] })
+app.get('/scanners', (req, res) => {
+  res.status(200).json(data)
 })
 
 // CREATE SERVER
