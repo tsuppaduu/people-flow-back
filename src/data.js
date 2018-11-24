@@ -37,14 +37,13 @@ function getData() {
   return results
 } 
 
-// TODO FIX
 const updateLiveSensors = (data) => {
   const { id, lat, lng, devices } = data
   console.log('got: ' + id + ' with devices: ' + devices)
-  if (!liveSensors.find((s) => s.id === id)) {
-    liveSensors.push({ id, coords: [lat, lng], desc: `real sensor at ${lat} ${lng}`, fake: false, devices })
+  if (!liveSensors[0].scanners.find((s) => s.id === id)) {
+    liveSensors[0].scanners.push({ id, coords: [lat, lng], desc: `real sensor at ${lat} ${lng}`, fake: false, devices })
   } else {
-    liveSensors = liveSensors.map((sensor) => {
+    liveSensors[0].scanners = liveSensors[0].scanners.map((sensor) => {
       if (sensor.id !== id) {
         return sensor
       }
