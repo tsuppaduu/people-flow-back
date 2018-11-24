@@ -96,16 +96,14 @@ const polyPositions = [
       ]},
 ]
 
-const deviceData = polyPositions.map( (poly, i) => {
-  const [ lat, lng ] = poly.coords[0]
-  console.log("pos ", lat , lng)
-  return { i, devices: 250*Math.sin((new Date().getTime()+(i*4343212 ^ 24142243))/60*10*1000) + 250, lat, lng, time: new Date() }
-})
-
-const data = [
-  ...deviceData
-]
+function getData() {
+   return polyPositions.map( (poly, i) => {
+	  const [ lat, lng ] = poly.coords[0]
+	  console.log("pos ", lat , lng)
+	  return { i, devices: 250*Math.sin((new Date().getTime()+i*1000232^2324321)/(60*0.3*1000)) + 250, lat, lng, time: new Date() }
+	})
+} 
 
 
 
-module.exports = data
+module.exports = getData
